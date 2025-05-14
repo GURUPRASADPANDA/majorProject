@@ -7,8 +7,9 @@ const listingSchema = new Schema({
         required: true,
       },
       description:String,
-      image{
+      image:{
         type: String,
+        default:"https://cdn.pixabay.com/photo/2025/04/23/01/35/bird-9551361_1280.jpg",
         set:(v) => 
           v ==="" 
             ? "https://cdn.pixabay.com/photo/2025/04/23/01/35/bird-9551361_1280.jpg"
@@ -20,4 +21,4 @@ const listingSchema = new Schema({
 });
 
 const Listing = mongoose.model("Listing",listingSchema);
-modules.export = Listing;
+module.exports = Listing;
