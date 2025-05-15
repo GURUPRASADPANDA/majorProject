@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const Listing = require("./models/listing.js");
 require('dotenv').config();
-
+const path = require("path");
 
 const PORT = process.env.PORT || 5000;
 const MONGO_URL = process.env.MONGO_URL;
@@ -20,9 +20,19 @@ async function main(){
         await mongoose.connect(MONGO_URL); 
 }
 
+app.set("views engine","ejs");
+app.set("views",path.join(__dirname,"views"));
+
 app.get("/",(req,res)=>{
     res.send("hare krishna");
 });
+
+app.get("/listings",async (req,res)=>{
+   const allListings=  await Listing.find({});
+   res.render("listings/index.ejs",{allListings});
+});
+
+
 
 app.get("/testListing",async(req,res)=>{
     let sampleListing = new Listing({

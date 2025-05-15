@@ -13,9 +13,10 @@
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "mongodb": "^6.16.0",
-    "mongoose": "^8.14.2"
+    "mongoose": "^8.14.3"
   },
   "devDependencies": {
-    "nod": "^0.2.0"
+    "nod": "^0.2.0",
+    "nodemon": "^3.1.10"
   }
 }
